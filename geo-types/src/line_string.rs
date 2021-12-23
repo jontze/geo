@@ -283,7 +283,7 @@ impl<T: CoordinateType> IndexMut<usize> for LineString<T> {
 #[cfg(feature = "rstar")]
 impl<T> ::rstar::RTreeObject for LineString<T>
 where
-    T: ::num_traits::Float + ::rstar::RTreeNum,
+    T: ::num_traits::Float + ::rstar::RTreeNum + Send,
 {
     type Envelope = ::rstar::AABB<Point<T>>;
 
@@ -306,7 +306,7 @@ where
 #[cfg(feature = "rstar")]
 impl<T> ::rstar::PointDistance for LineString<T>
 where
-    T: ::num_traits::Float + ::rstar::RTreeNum,
+    T: ::num_traits::Float + ::rstar::RTreeNum + Send,
 {
     fn distance_2(&self, point: &Point<T>) -> T {
         let d = crate::private_utils::point_line_string_euclidean_distance(*point, self);

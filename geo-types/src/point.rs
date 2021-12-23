@@ -413,7 +413,7 @@ where
 // These are required for rstar RTree
 impl<T> ::rstar::Point for Point<T>
 where
-    T: ::num_traits::Float + ::rstar::RTreeNum,
+    T: ::num_traits::Float + ::rstar::RTreeNum + Send,
 {
     type Scalar = T;
 

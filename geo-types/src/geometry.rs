@@ -200,7 +200,7 @@ impl Error for FailedToConvertError {
 
 impl<T> TryFrom<Geometry<T>> for Point<T>
 where
-    T: Float,
+    T: Float + Send,
 {
     type Error = FailedToConvertError;
 
@@ -214,7 +214,7 @@ where
 
 impl<T> TryFrom<Geometry<T>> for Line<T>
 where
-    T: Float,
+    T: Float + Send,
 {
     type Error = FailedToConvertError;
 
@@ -228,7 +228,7 @@ where
 
 impl<T> TryFrom<Geometry<T>> for LineString<T>
 where
-    T: Float,
+    T: Float + Send,
 {
     type Error = FailedToConvertError;
 
@@ -242,7 +242,7 @@ where
 
 impl<T> TryFrom<Geometry<T>> for Polygon<T>
 where
-    T: Float,
+    T: Float + Send,
 {
     type Error = FailedToConvertError;
 
@@ -256,7 +256,7 @@ where
 
 impl<T> TryFrom<Geometry<T>> for MultiPoint<T>
 where
-    T: Float,
+    T: Float + Send,
 {
     type Error = FailedToConvertError;
 
@@ -270,7 +270,7 @@ where
 
 impl<T> TryFrom<Geometry<T>> for MultiLineString<T>
 where
-    T: Float,
+    T: Float + Send,
 {
     type Error = FailedToConvertError;
 
@@ -284,7 +284,7 @@ where
 
 impl<T> TryFrom<Geometry<T>> for MultiPolygon<T>
 where
-    T: Float,
+    T: Float + Send,
 {
     type Error = FailedToConvertError;
 

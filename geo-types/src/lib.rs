@@ -35,9 +35,9 @@ extern crate approx;
 /// Floats (`f32` and `f64`) and Integers (`u8`, `i32` etc.)
 /// implement this. Many algorithms only make sense for
 /// Float types (like area, or length calculations).
-pub trait CoordinateType: Num + Copy + NumCast + PartialOrd {}
+pub trait CoordinateType: Num + Copy + NumCast + PartialOrd + Send {}
 // Little bit of a hack to make to make this work
-impl<T: Num + Copy + NumCast + PartialOrd> CoordinateType for T {}
+impl<T: Num + Copy + NumCast + PartialOrd + Send> CoordinateType for T {}
 
 mod coordinate;
 pub use crate::coordinate::Coordinate;

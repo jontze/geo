@@ -289,7 +289,7 @@ where
 #[cfg(feature = "rstar")]
 impl<T> ::rstar::Point for Coordinate<T>
 where
-    T: ::num_traits::Float + ::rstar::RTreeNum,
+    T: ::num_traits::Float + ::rstar::RTreeNum + Send,
 {
     type Scalar = T;
 
